@@ -1,0 +1,12 @@
+{
+  "name": "turtleg",
+  "private": true,
+  "workspaces": [
+    "Backend",
+    "Frontend"
+  ],
+  "scripts": {
+    "start": "cd Backend && node src/index.js",
+    "build:frontend": "cd Frontend && npm install && npm run build"
+  }
+}
