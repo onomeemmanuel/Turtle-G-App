@@ -6,7 +6,7 @@
     "Frontend"
   ],
   "scripts": {
-    "start": "cd Backend && node src/index.js",
-    "build:frontend": "cd Frontend && npm install && npm run build"
+    "build": "cd Frontend && npm install && npm run build",
+    "start": "cd Backend && npm install && node src/index.js"
   }
 }
