@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: turtleg-backend
+    env: node
+    branch: main
+    plan: free
+    buildCommand: cd Backend && npm install
+    startCommand: cd Backend && npm start
+    envVars:
+      - key: MONGO_URI
+        sync: false
+      - key: PORT
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+
+  - type: static_site
+    name: turtleg-frontend
+    branch: main
+    plan: free
+    buildCommand: cd Frontend && npm install && npm run build
+    staticPublishPath: Frontend/dist
