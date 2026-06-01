@@ -2,10 +2,11 @@ services:
   - type: web
     name: turtleg-backend
     env: node
+    rootDir: Backend
     branch: main
     plan: free
-    buildCommand: cd Backend && npm install
-    startCommand: cd Backend && npm start
+    buildCommand: npm ci
+    startCommand: npm start
     envVars:
       - key: MONGO_URI
         sync: false
@@ -19,11 +20,16 @@ services:
 
   - type: static_site
     name: turtleg-frontend
+    env: node
+    rootDir: Frontend
     branch: main
     plan: free
-    buildCommand: cd Frontend && npm install && npm run build
-    staticPublishPath: Frontend/dist
+    buildCommand: npm ci --include=dev --silent && npm run build
+    staticPublishPath: dist
     envVars:
       - key: NPM_CONFIG_PRODUCTION
         value: "false"
+        sync: false
+      - key: NODE_OPTIONS
+        value: "--max-old-space-size=3072"
         sync: false
