@@ -13,6 +13,9 @@ services:
         sync: false
       - key: JWT_SECRET
         sync: false
+      - key: NPM_CONFIG_PRODUCTION
+        value: "false"
+        sync: false
 
   - type: static_site
     name: turtleg-frontend
@@ -20,3 +23,7 @@ services:
     plan: free
     buildCommand: cd Frontend && npm install && npm run build
     staticPublishPath: Frontend/dist
+    envVars:
+      - key: NPM_CONFIG_PRODUCTION
+        value: "false"
+        sync: false

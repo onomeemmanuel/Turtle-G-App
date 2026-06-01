@@ -8,6 +8,7 @@
   "scripts": {
     "build": "npm run build --workspace=Frontend",
     "start": "node Backend/src/index.js",
-    "dev": "npm run dev --workspace=Backend"
+    "dev": "npm run dev --workspace=Backend",
+    "postinstall": "npm install --workspace=Frontend --include=dev"
   }
 }
